@@ -9,18 +9,18 @@ import RoutePosts from "./services/Router/RoutePosts.jsx";
 
 function App() {
 
-  return <>
+  return <div className="App">
 
     <Router>
       <Header></Header>
-
+      <main>
       <RoutePosts></RoutePosts>
-
+      </main>
       <Footer></Footer>
     </Router>
 
 
-  </>
+  </div>
 
 }
 
