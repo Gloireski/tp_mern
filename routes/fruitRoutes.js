@@ -4,17 +4,12 @@ const router = require('express').Router()
 
 router.get('/', fruitController.getFruit)
 
-router.get('/:id', (req, res) => {
-    res.send(`Hello World ${req.params.id}`)
-})
+router.get('/:id', fruitController.getFruitById)
 
 router.post('/', fruitController.addFruit)
 
 router.put('/:id', fruitController.editFruit)
 
-router.delete('/:id', (req, res) => {
-    const { id } = req.params
-    res.send(`ID: ${id}`)
-})
+router.delete('/:id', fruitController.deleteFruit)
 
 module.exports = router
