@@ -1,25 +1,69 @@
 ﻿.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: #006008;
     color: #fff;
-    padding: 15px 20px;
+    padding: 10px 20px;
     position: sticky;
     top: 0;
     z-index: 1000;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 0;
 }
 
-.logo a {
-    color: #fff5e0;
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav a {
     text-decoration: none;
-    font-size: 24px;
+    color: #fff;
+    font-size: 16px;
     font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #cfcfcf;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.searchInput {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    width: 200px;
+}
+
+.searchInput:focus {
+    border-color: #019e0f;
+}
+
+.searchButton {
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #019e0f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.searchButton:hover {
+    background-color: #016c0a;
 }

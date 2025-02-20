@@ -21,12 +21,10 @@ function App() {
 
 
   return <>
-    <Header></Header>
 
     <Router>
-      <nav>
-        <Link to="/fruits">Fruits</Link>
-      </nav>
+      <Header></Header>
+
       <RoutePosts></RoutePosts>
     </Router>
 
