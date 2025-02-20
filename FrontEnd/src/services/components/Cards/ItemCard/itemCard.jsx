@@ -1,9 +1,9 @@
 ﻿import style from "./itemCard.module.css";
 
-const ItemCard = ({ name, description, price, imageUrl }) => {
+const ItemCard = ({ name, description, price, image_url }) => {
     return (
         <div className={style.card}>
-            <img src={imageUrl} alt={name} />
+            <img src={image_url} alt={name} />
             <h1>{name}</h1>
             <p>{price} €</p>
             <p>{description}</p>

@@ -1,11 +1,11 @@
 import style from "./detailCard.module.css";
 
-const DetailCard = ({ name, description, price, category, origin, imageUrl }) => {
+const DetailCard = ({ name, description, price, category, origin, image_url }) => {
     return (
         <div className={style.card}>
             <div className={style.cardContent}>
                 <div className={style.cardImage}>
-                    <img src={imageUrl} alt={name} />
+                    <img src={image_url} alt={name} />
                 </div>
                 <div className={style.cardDetails}>
                     <h1>{name}</h1>

@@ -6,7 +6,7 @@
     "description": "A tangy and slightly bitter citrus fruit, perfect for juicing or fresh consumption. It contains Vitamin C, Fiber, and 42 calories per 100g.",
     "price": 2.00,
     "origin": "USA",
-    "image_url": "https://example.com/images/grapefruit.jpg"
+    "image_url": "https://i.imgur.com/AteuNCf.jpeg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "description": "A zesty fruit, ideal for juicing or adding to dishes for a tangy kick. It contains Vitamin C, Potassium, and 29 calories per 100g.",
     "price": 1.20,
     "origin": "Spain",
-    "image_url": "https://example.com/images/lemon.jpg"
+    "image_url": "https://i.imgur.com/UWmchQA.jpeg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "description": "A sweet and refreshing citrus fruit packed with vitamin C. It contains Vitamin C, Fiber, and 47 calories per 100g.",
     "price": 1.50,
     "origin": "Italy",
-    "image_url": "https://example.com/images/orange.jpg"
+    "image_url": "https://i.imgur.com/j7rLAmQ.jpeg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "description": "A small, sweet citrus fruit, easy to peel and perfect for snacking. It contains Vitamin C, Fiber, and 53 calories per 100g.",
     "price": 1.80,
     "origin": "Spain",
-    "image_url": "https://example.com/images/mandarin.jpg"
+    "image_url": "https://i.imgur.com/fchaMlZ.png"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "description": "A tropical fruit with a sweet, tangy flavor, great for smoothies. It contains Vitamin C, Manganese, and 50 calories per 100g.",
     "price": 3.00,
     "origin": "Thailand",
-    "image_url": "https://example.com/images/pineapple.jpg"
+    "image_url": "https://i.imgur.com/9FOt5dt.jpeg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "description": "A juicy and fragrant tropical fruit, known for its sweetness. It contains Vitamin A, Vitamin C, and 60 calories per 100g.",
     "price": 2.80,
     "origin": "Mexico",
-    "image_url": "https://example.com/images/mango.jpg"
+    "image_url": "https://i.imgur.com/PniSRNB.jpeg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "description": "A soft and sweet tropical fruit with a vibrant orange color. It contains Vitamin C, Folate, and 43 calories per 100g.",
     "price": 2.10,
     "origin": "Brazil",
-    "image_url": "https://example.com/images/papaya.jpg"
+    "image_url": "https://i.imgur.com/tC2lRnY.png"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "description": "A creamy, rich fruit that's a great source of potassium and energy. It contains Vitamin B6, Vitamin C, and 89 calories per 100g.",
     "price": 1.30,
     "origin": "Ecuador",
-    "image_url": "https://example.com/images/banana.jpg"
+    "image_url": "https://i.imgur.com/nZuGSTp.jpeg"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "description": "A sweet and juicy berry, perfect for desserts or snacks. It contains Vitamin C, Manganese, and 32 calories per 100g.",
     "price": 2.20,
     "origin": "USA",
-    "image_url": "https://example.com/images/strawberry.jpg"
+    "image_url": "https://i.imgur.com/jpUahXa.jpeg"
   },
   {
     "id": 10,
@@ -87,7 +87,7 @@
     "description": "Small, sweet berries that are rich in antioxidants. It contains Vitamin C, Vitamin K, and 57 calories per 100g.",
     "price": 3.50,
     "origin": "Canada",
-    "image_url": "https://example.com/images/blueberry.jpg"
+    "image_url": "https://i.imgur.com/AvN6HCv.png"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "description": "A tart yet sweet berry that is high in fiber and antioxidants. It contains Vitamin C, Manganese, and 52 calories per 100g.",
     "price": 2.80,
     "origin": "USA",
-    "image_url": "https://example.com/images/raspberry.jpg"
+    "image_url": "https://i.imgur.com/v0xhhIv.jpeg"
   },
   {
     "id": 12,
@@ -105,7 +105,7 @@
     "description": "A sweet and slightly tart berry, perfect for smoothies. It contains Vitamin C, Vitamin K, and 43 calories per 100g.",
     "price": 3.00,
     "origin": "USA",
-    "image_url": "https://example.com/images/blackberry.jpg"
+    "image_url": "https://i.imgur.com/ImhOeN8.png"
   },
   {
     "id": 13,
@@ -114,7 +114,7 @@
     "description": "A creamy fruit, rich in healthy fats and ideal for guacamole or salads. It contains Vitamin E, Vitamin K, and 160 calories per 100g.",
     "price": 2.80,
     "origin": "Mexico",
-    "image_url": "https://example.com/images/avocado.jpg"
+    "image_url": "https://i.imgur.com/ARViSx6.jpeg"
   },
   {
     "id": 14,
@@ -123,7 +123,7 @@
     "description": "A juicy, red fruit often used as a vegetable in salads and cooking. It contains Vitamin C, Vitamin K, and 18 calories per 100g.",
     "price": 1.50,
     "origin": "Italy",
-    "image_url": "https://example.com/images/tomato.jpg"
+    "image_url": "https://i.imgur.com/2gUKBzc.jpeg"
   },
   {
     "id": 15,
@@ -132,7 +132,7 @@
     "description": "A ruby-red fruit with juicy seeds, full of antioxidants. It contains Vitamin C, Vitamin K, and 83 calories per 100g.",
     "price": 3.50,
     "origin": "India",
-    "image_url": "https://example.com/images/pomegranate.jpg"
+    "image_url": "https://i.imgur.com/Q2hIeLh.jpeg"
   },
   {
     "id": 16,
@@ -141,6 +141,6 @@
     "description": "A small, fuzzy fruit with a tart and sweet flavor, rich in Vitamin C. It contains Vitamin C, Vitamin K, and 61 calories per 100g.",
     "price": 2.40,
     "origin": "New Zealand",
-    "image_url": "https://example.com/images/kiwi.jpg"
+    "image_url": "https://i.imgur.com/mfEPbd6.jpeg"
   }
 ]

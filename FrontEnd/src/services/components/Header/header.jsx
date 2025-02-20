@@ -27,27 +27,31 @@ function Header() {
         }
     };
 
+    /*
+    <nav className={style.nav}>
+
+        <Link to="/">Accueil</Link>
+        <Link to="/fruits">Fruits</Link>
+        <Link to="/">Contact</Link>
+
+    </nav>
+    */
+
     return (
         <header className={style.header}>
-            <h1 className={style.title}>Fruit Market</h1>
-
-            <nav className={style.nav}>
-                <Link to="/">Accueil</Link>
-                <Link to="/fruits">Fruits</Link>
-                <Link to="/">Contact</Link>
-            </nav>
+            <h1 className={style.title}><Link to="/">Fruit Market</Link></h1>
 
             <div className={style.searchContainer}>
                 <input
                     type="text"
-                    placeholder="Rechercher..."
+                    placeholder="Search..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
                     className={style.searchInput}
                 />
                 <button onClick={handleSearch} className={style.searchButton}>
-                    Rechercher
+                    Search
                 </button>
             </div>
         </header>

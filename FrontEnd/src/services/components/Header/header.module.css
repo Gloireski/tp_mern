@@ -17,6 +17,11 @@
     margin: 0;
 }
 
+.title a {
+    color: #fff;
+    text-decoration: none;
+}
+
 .nav {
     display: flex;
     gap: 15px;
