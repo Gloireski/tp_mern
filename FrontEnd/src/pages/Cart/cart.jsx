@@ -8,7 +8,7 @@ const Cart = () => {
     const { cart, removeFromCart } = useCart();
 
     if (cart.length === 0) {
-        return <p>Votre panier est vide.</p>;
+        return <p>Your Shopping Cart is empty.</p>;
     }
 
     return (

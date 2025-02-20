@@ -16,18 +16,18 @@ export const CartProvider = ({ children }) => {
     }, [cart]);
 
 
-    const addToCart = (fruit) => {
+    const addToCart = (fruit, quantity = 1) => {
         setTimeout(() => {
             setCart((prev) => {
                 const existingItem = prev.find((item) => item.id === fruit.id);
 
                 if (!existingItem) {
-                    return [...prev, { ...fruit, quantity: 1 }];
+                    return [...prev, { ...fruit, quantity: quantity }];
                 }
 
                 return prev.map((item) =>
                     item.id === fruit.id
-                        ? { ...item, quantity: item.quantity + 1 }
+                        ? { ...item, quantity: item.quantity + quantity }
                         : item
                 );
             });
@@ -35,13 +35,21 @@ export const CartProvider = ({ children }) => {
     };
 
 
-    const removeFromCart = (fruit) => {
+    const removeFromCart = (fruit, quantity = -1) => {
         setTimeout(() => {
             setCart((prev) => {
                 const existingItem = prev.filter((item) => item.id === fruit.id);
 
                 if (existingItem){
-                    return prev.filter((item) => item.id !== fruit.id);
+                    if (quantity === -1){
+                        return prev.filter((item) => item.id !== fruit.id);
+                    } else {
+                        return prev.map((item) =>
+                            item.id === fruit.id
+                                ? { ...item, quantity: item.quantity - quantity }
+                                : item
+                        );
+                    }
                 }
             });
         }, 0);
