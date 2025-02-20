@@ -9,6 +9,7 @@ connectDB()
 
 const filmRoutes = require('./routes/filmRoutes')
 const fruitRoutes = require('./routes/fruitRoutes')
+const authRoutes = require('./routes/auth')
 
 // dbCon()
 
@@ -22,3 +23,4 @@ app.use(express.json())
 app.use('/', require('./routes/index'))
 app.use('/films', filmRoutes)
 app.use('/fruits', fruitRoutes)
+app.use('/auth', authRoutes)
