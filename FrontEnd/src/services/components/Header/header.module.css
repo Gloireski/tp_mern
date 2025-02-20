@@ -1,5 +1,5 @@
 ﻿.header {
-    background-color: #780000;
+    background-color: #006008;
     color: #fff;
     padding: 15px 20px;
     position: sticky;
@@ -18,28 +18,8 @@
 }
 
 .logo a {
-    color: #ffc107;
+    color: #fff5e0;
     text-decoration: none;
     font-size: 24px;
     font-weight: bold;
-}
-
-.navList {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-.navList li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    transition: color 0.3s ease;
-}
-
-.navList li a:hover {
-    color: #ffc107;
 }

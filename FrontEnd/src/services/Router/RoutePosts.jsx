@@ -1,6 +1,6 @@
 ﻿import { Route, Routes} from "react-router-dom";
 import Accueil from "../../pages/Accueil";
-import Details from "../../pages/Details";
+import Details from "../../pages/Details/Details.jsx";
 import ErrorPage from "../../pages/404/ErrorPage";
 import RouteDynamic from "../../pages/Dynamic/RouteDynamic";
 

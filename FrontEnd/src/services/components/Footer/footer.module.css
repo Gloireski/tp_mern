@@ -1,19 +1,13 @@
 ﻿.footer {
-    background-color: #780000;
+    background-color: #006008;
     color: #fff;
     text-align: center;
     padding: 20px 10px;
     position: relative;
     bottom: 0;
-    width: 100%;
+
+    width: 100vw;
+    box-sizing: border-box;
     font-size: 14px;
-}
-
-.footer-content {
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.footer-nav a:hover {
-    text-decoration: underline;
+    overflow-x: hidden;
 }
