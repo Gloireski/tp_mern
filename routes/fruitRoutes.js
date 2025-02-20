@@ -10,11 +10,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', fruitController.addFruit)
 
-router.put('/:id', (req, res) => {
-    const { id } = req.params
-    const { name, category, description, price, origin, img_url } = req.body
-    res.send(`ID: ${id}, Name: ${name}, Category: ${category}, Description: ${description}, Price: ${price}, Origin: ${origin}, Image URL: ${img_url}`)
-})
+router.put('/:id', fruitController.editFruit)
 
 router.delete('/:id', (req, res) => {
     const { id } = req.params

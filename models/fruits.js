@@ -28,7 +28,7 @@ const fruitSchema =  new mongoose.Schema({
         type: String,
         required: true
     },
-    img_url: {
+    image_url: {
         type: String,
         required: true
     },
@@ -73,7 +73,7 @@ const fruitValidation = Joi.object({
         'string.empty': 'Origine ne peut pas être vide',
         'any.required': 'Origine est requise'
     }),
-    img_url: Joi.string()
+    image_url: Joi.string()
     .required()
     .messages({
         'string.base': 'Image URL doit être une chaîne de caractères',
