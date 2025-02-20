@@ -41,6 +41,10 @@ function Header() {
         <header className={style.header}>
             <h1 className={style.title}><Link to="/">Fruit Market</Link></h1>
 
+            <nav>
+                <Link to="/cart">Panier</Link>
+            </nav>
+
             <div className={style.searchContainer}>
                 <input
                     type="text"
