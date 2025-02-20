@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const mongoclient = require('mongodb').MongoClient
+// const dbCon = require('mongodb').MongoClient
 const dotenv = require('dotenv')
 
 dotenv.config()
@@ -15,8 +15,8 @@ const connectDB = async () => {
     }
 }
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(() => console.log('Db connected!'));
+// dbCon.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+// .then(() => console.log('Db connected!'));
 // const connect = async () => {
 //     try {
 //         await mongoclient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -27,5 +27,6 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 // }
 
 // module.exports = connect
-module.exports = mongoose
+// module.exports = dbCon
+module.exports = connectDB
 // module.exports = connectDB

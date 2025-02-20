@@ -17,7 +17,7 @@ const fruitSchema =  new mongoose.Schema({
         lowercase: true
     },
     description: {
-        type: Text,
+        type: String,
         required: true
     },
     price: {
@@ -31,53 +31,54 @@ const fruitSchema =  new mongoose.Schema({
     img_url: {
         type: String,
         required: true
-    }
-})
+    },
+}
+, { timestamps: true })
 
-const Fruit = momgoose.model('Fruit', fruitSchema)
+const Fruit = mongoose.model('Fruit', fruitSchema)
 
 const fruitValidation = Joi.object({
     name: Joi.string()
     .required()
     .messages({
-        'string.base': 'Name must be a string',
-        'string.empty': 'Name cannot be empty',
-        'any.required': 'Name is required'
+        'string.base': 'Nom doit être une chaîne de caractères',
+        'string.empty': 'Nom ne peut pas être vide',
+        'any.required': 'Nom est requis'
     }),
     category: Joi.string()
     .required()
     .messages({
-        'string.base': 'Category must be a string',
-        'string.empty': 'Category cannot be empty',
-        'any.required': 'Category is required'
+        'string.base': 'Categorie doit être une chaîne de caractères',
+        'string.empty': 'Categorie ne peut pas être vide',
+        'any.required': 'Categorie est requise'
     }),
     description: Joi.string()
     .required()
     .messages({
-        'string.base': 'Description must be a string',
-        'string.empty': 'Description cannot be empty',
-        'any.required': 'Description is required'
+        'string.base': 'Description doit être une chaîne de caractères',
+        'string.empty': 'Description ne peut pas être vide',
+        'any.required': 'Description est requise'
     }),
     price: Joi.number()
     .required()
     .messages({
-        'number.base': 'Price must be a number',
-        'number.empty': 'Price cannot be empty',
-        'any.required': 'Price is required'
+        'number.base': 'Prix doit être un nombre',
+        'number.empty': 'Prix ne peut pas être vide',
+        'any.required': 'Prix est requis'
     }),
     origin: Joi.string()
     .required()
     .messages({
-        'string.base': 'Origin must be a string',
-        'string.empty': 'Origin cannot be empty',
-        'any.required': 'Origin is required'
+        'string.base': 'Origine doit être une chaîne de caractères',
+        'string.empty': 'Origine ne peut pas être vide',
+        'any.required': 'Origine est requise'
     }),
     img_url: Joi.string()
     .required()
     .messages({
-        'string.base': 'Image URL must be a string',
-        'string.empty': 'Image URL cannot be empty',
-        'any.required': 'Image URL is required'
+        'string.base': 'Image URL doit être une chaîne de caractères',
+        'string.empty': 'Image URL ne peut pas être vide',
+        'any.required': 'Image URL est requis'
     })
 })
 

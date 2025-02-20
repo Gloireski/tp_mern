@@ -1,17 +1,14 @@
+const fruitController = require('../controllers/fruitController')
+
 const router = require('express').Router()
 
-router.get('/', (req, res) => {
-    res.send('Hello World')
-})
+router.get('/', fruitController.getFruit)
 
 router.get('/:id', (req, res) => {
     res.send(`Hello World ${req.params.id}`)
 })
 
-router.post('/', (req, res) => {
-    const { name, category, description, price, origin, img_url } = req.body
-    res.send(`Name: ${name}, Category: ${category}, Description: ${description}, Price: ${price}, Origin: ${origin}, Image URL: ${img_url}`)
-})
+router.post('/', fruitController.addFruit)
 
 router.put('/:id', (req, res) => {
     const { id } = req.params
