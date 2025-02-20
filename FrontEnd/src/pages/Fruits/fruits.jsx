@@ -1,9 +1,9 @@
 ﻿import fruits from "../../data/fruits.json";
-import { ItemCard } from "../../services/components/ItemCard/itemCard.jsx";
-import style from "./Details.module.css";
+import { ItemCard } from "../../services/components/Cards/ItemCard/itemCard.jsx";
+import style from "./fruits.module.css";
 
 
-const Details = () => {
+const Fruits = () => {
     return (
         <>
             <h1>Fruits</h1>
@@ -28,4 +28,4 @@ const Details = () => {
     );
 };
 
-export default Details;
+export default Fruits;

@@ -3,9 +3,17 @@
     color: #fff;
     text-align: center;
     padding: 20px 10px;
+    margin-top: 20px;
     position: relative;
     bottom: 0;
     box-sizing: border-box;
     font-size: 14px;
     overflow-x: hidden;
+}
+
+.footerNav a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
 }

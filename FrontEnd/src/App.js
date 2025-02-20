@@ -25,10 +25,10 @@ function App() {
 
     <Router>
       <nav>
-        <Link to="/">Accueil</Link> | <Link to="/details">Details</Link>
+        <Link to="/fruits">Fruits</Link>
       </nav>
       <RoutePosts></RoutePosts>
-    </Router>)
+    </Router>
 
 
     <Footer></Footer>

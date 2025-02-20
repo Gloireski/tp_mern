@@ -1,15 +1,15 @@
 ﻿import { Route, Routes} from "react-router-dom";
-import Accueil from "../../pages/Accueil";
-import Details from "../../pages/Details/Details.jsx";
 import ErrorPage from "../../pages/404/ErrorPage";
-import RouteDynamic from "../../pages/Dynamic/RouteDynamic";
+import FruitDetails from "../../pages/FruitDetails/fruitDetails.jsx";
+import Fruits from "../../pages/Fruits/fruits.jsx";
 
 const RoutePosts = () => {
     return <>
             <Routes>
-                <Route path="/" element={<Accueil />}></Route>
-                <Route path="/details" element={<Details />}></Route>
-                <Route path="/details/:id" element={<RouteDynamic />}></Route>
+                <Route path="/" element={<Fruits />}></Route>
+                <Route path="/fruits" element={<Fruits />}></Route>
+                <Route path="/:id" element={<FruitDetails />}></Route>
+                <Route path="/fruits/:id" element={<FruitDetails />}></Route>
                 <Route path="*" element={<ErrorPage />}></Route>
             </Routes>
     </>

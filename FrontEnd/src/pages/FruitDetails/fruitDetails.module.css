@@ -1,0 +1,46 @@
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.editButton {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.editButton:hover {
+    background-color: #ec971f;
+    transform: scale(1.05);
+}
+
+.deleteButton {
+    background-color: #d9534f;
+    color: white;
+}
+
+.deleteButton:hover {
+    background-color: #c9302c;
+    transform: scale(1.05);
+}
+
+.addButton {
+    background-color: #5cb85c;
+    color: white;
+}
+
+.addButton:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}

@@ -11,14 +11,5 @@ const ItemCard = ({ name, description, price, imageUrl }) => {
     );
 };
 
-const PostCards = ({ title, body, imageUrl }) => {
-    return (
-        <div className={style.card}>
-            <img src={imageUrl} alt={title} />
-            <h1>{title}</h1>
-            <p>Descrition du produit : {body}</p>
-        </div>
-    );
-};
 
-export { ItemCard, PostCards };
+export { ItemCard };
