@@ -61,7 +61,7 @@ class fruitController {
         try {
             const { error, value } = fruitValidation.validate(req.body)
             if (error) {
-                res.status(400).json({msg: error.details[0].message})
+                return res.status(400).json({msg: error.details[0].message})
             }
             console.log("etape maj")
             const { name, category, description, price, origin, image_url } = req.body
@@ -77,8 +77,6 @@ class fruitController {
                 },
                 { new: true }
             )
-            
-
             res.status(202).json(fruit)
         } catch(error) {
             console.log(error)
