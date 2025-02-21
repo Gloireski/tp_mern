@@ -49,7 +49,7 @@ const LogIn = () => {
 
     return (
         <div className={styles.container}>
-            <h2>Connexion</h2>
+            <h2>Log In</h2>
             <form onSubmit={handleSubmit}>
                 <div className={styles.inputGroup}>
                     <label htmlFor="email">Email :</label>
@@ -65,7 +65,7 @@ const LogIn = () => {
                     />
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="password">Mot de passe :</label>
+                    <label htmlFor="password">Password :</label>
                     <br />
                     <input
                         type="password"

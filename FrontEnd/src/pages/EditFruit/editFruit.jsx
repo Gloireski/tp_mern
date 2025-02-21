@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import styles from "./editFruit.module.css";
 
 
 const EditFruit = () => {
@@ -85,7 +86,7 @@ const EditFruit = () => {
     }, [id])
 
     return (
-        <div>
+        <div className={styles.addForm}>
             <h2>Modifier les Informations du Fruit</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {success && <p style={{ color: "green" }}>{success}</p>}

@@ -65,10 +65,10 @@ const SignIn = () => {
 
     return (
         <div className={styles.container}>
-            <h2>Inscription</h2>
+            <h2>Sign Up</h2>
             <form onSubmit={handleSubmit}>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="name">Nom :</label>
+                    <label htmlFor="name">Name :</label>
                     <br />
                     <input
                         type="text"
@@ -94,7 +94,7 @@ const SignIn = () => {
                     />
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="password">Mot de passe :</label>
+                    <label htmlFor="password">Password :</label>
                     <br />
                     <input
                         type="password"
@@ -107,7 +107,7 @@ const SignIn = () => {
                     />
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="confirmPassword">Confirmez le mot de passe :</label>
+                    <label htmlFor="confirmPassword">Confirm Password :</label>
                     <br />
                     <input
                         type="password"
@@ -122,7 +122,7 @@ const SignIn = () => {
                 {error && <p className={styles.error}>{error}</p>}
                 {success && <p className={styles.success}>{success}</p>}
                 <button type="submit" className={styles.button}>
-                    S'inscrire
+                    Sign Up
                 </button>
             </form>
         </div>

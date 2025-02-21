@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "./addFruit.module.css";
 
 const AddFruit = () => {
     const [formData, setFormData] = useState({
@@ -71,14 +72,14 @@ const AddFruit = () => {
     };
 
     return (
-        <div>
-            <h2>Ajouter un Fruit</h2>
+        <div className={styles.addForm}>
+            <h2>Add Fruit</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Nom :</label>
-                    <input
+                    <label>Name :</label>
+                    <input className={styles.addInput}
                         type="text"
                         name="name"
                         value={formData.name}
@@ -87,8 +88,8 @@ const AddFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Catégorie :</label>
-                    <input
+                    <label>Category :</label>
+                    <input className={styles.addInput}
                         type="text"
                         name="category"
                         value={formData.category}
