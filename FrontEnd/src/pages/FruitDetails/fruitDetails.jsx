@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 
 const FruitDetails = () => {
     const { id } = useParams();
-    const { addToCart } = useCart();
+    const { addToCart, removeFromCart } = useCart();
     const [quantity, setQuantity] = useState(1);
 
     const [fruit, setFruit] = useState([]);
@@ -59,10 +59,31 @@ const FruitDetails = () => {
 
     const goToEdit = () => {
         navigate("/edit/" + fruit._id);
+    };
+
+const deleteFruit = async () => {
+    const confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer ce fruit ?");
+    if (!confirmed) return;
+
+    try {
+        const response = await fetch(`http://localhost:5000/fruits/${id}`, {
+            method: "DELETE",
+        });
+
+        if (!response.ok) {
+            throw new Error("Échec de la suppression du fruit.");
+        }
+
+        removeFromCart(fruit._id);
+
+        navigate("/");
+    } catch (err) {
+        alert(`Erreur : ${err.message}`);
     }
+};
 
 
-    return (
+return (
         <div className={style.detailContainer}>
         <DetailCard key={fruit.id} {...fruit} />
 
@@ -99,7 +120,7 @@ const FruitDetails = () => {
             <button className={`${style.button} ${style.editButton}`} onClick={() => goToEdit()}>
                 Edit
             </button>
-            <button className={`${style.button} ${style.deleteButton}`}>
+            <button className={`${style.button} ${style.deleteButton}`} onClick={() => deleteFruit()}>
                 Delete
             </button>
         </div>
