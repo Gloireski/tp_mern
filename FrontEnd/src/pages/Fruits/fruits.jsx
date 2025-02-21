@@ -65,6 +65,13 @@ const Fruits = () => {
                     <p style = {{  size: "30px"}}>🛒 Start Shopping Now & Taste the Freshness!</p>
                 </div>
             </div>
+
+            <div className={style.fruitgrid}>
+                <Category
+                    key={"All Fruits"}
+                    title={"All Fruits"}
+                    fruits={fruits}/>
+                </div>
             <div className= {style.fruitgrid}>
                 {categories.map(category => (
                     <Category
