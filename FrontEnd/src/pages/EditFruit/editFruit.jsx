@@ -47,16 +47,21 @@ const EditFruit = () => {
         setSuccess("");
 
         try {
+            const { _id, createdAt, updatedAt, __v, ...dataToSubmit } = formData;
+            console.log(dataToSubmit);
+
+            console.log(`http://localhost:5000/fruits/${id}`);
             const response = await fetch(`http://localhost:5000/fruits/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(dataToSubmit),
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
+                console.log(errorData);
                 throw new Error(errorData.message);
             }
 
