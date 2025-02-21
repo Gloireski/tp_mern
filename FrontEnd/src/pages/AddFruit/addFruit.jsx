@@ -107,7 +107,7 @@ const AddFruit = () => {
                     ></textarea>
                 </div>
                 <div>
-                    <label>Prix :</label>
+                    <label>Price :</label>
                     <input
                         type="number"
                         name="price"
@@ -117,7 +117,7 @@ const AddFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Origine :</label>
+                    <label>Origin :</label>
                     <input
                         type="text"
                         name="origin"
@@ -127,7 +127,7 @@ const AddFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Image URL :</label>
+                    <label>Image :</label>
                     <input
                         type="file"
                         name="image_url"
@@ -136,7 +136,7 @@ const AddFruit = () => {
                         required
                     />
                 </div>
-                <button type="submit">Ajouter</button>
+                <button type="submit">Add</button>
             </form>
         </div>
     );

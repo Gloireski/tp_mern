@@ -87,12 +87,12 @@ const EditFruit = () => {
 
     return (
         <div className={styles.addForm}>
-            <h2>Modifier les Informations du Fruit</h2>
+            <h2>Edit Fruit</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
             {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label>Nom :</label>
+                    <label>Name :</label>
                     <input
                         type="text"
                         name="name"
@@ -102,7 +102,7 @@ const EditFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Catégorie :</label>
+                    <label>Category :</label>
                     <input
                         type="text"
                         name="category"
@@ -121,7 +121,7 @@ const EditFruit = () => {
                     ></textarea>
                 </div>
                 <div>
-                    <label>Prix :</label>
+                    <label>Price :</label>
                     <input
                         type="number"
                         name="price"
@@ -131,7 +131,7 @@ const EditFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Origine :</label>
+                    <label>Origin :</label>
                     <input
                         type="text"
                         name="origin"
@@ -150,7 +150,7 @@ const EditFruit = () => {
                         required
                     />
                 </div>
-                <button type="submit">Mettre à Jour</button>
+                <button type="submit">Update</button>
             </form>
         </div>
     );
