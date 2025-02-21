@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
+import {useNavigate} from "react-router-dom";
 
 const LogIn = () => {
     const [formData, setFormData] = useState({
@@ -9,21 +10,41 @@ const LogIn = () => {
 
     const [error, setError] = useState("");
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.email || !formData.password) {
             setError("Fill all the fields.");
             return;
         }
+        try {
+            // Requête vers l'API de login
+            const response = await fetch("http://localhost:5000/auth/login", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(formData),
+            });
 
-        console.log("Email:", formData.email);
-        console.log("Password:", formData.password);
-        setError("");
+            if (!response.ok) {
+                const {message} = await response.json();
+                throw new Error(message || "Login failed.");
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+            setError("");
+            navigate("/fruits");
+        } catch (err) {
+            setError(err.message);
+        }
+
     };
 
     return (

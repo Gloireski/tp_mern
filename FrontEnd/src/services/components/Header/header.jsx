@@ -63,7 +63,7 @@ function Header() {
             </div>
             <div className={style.accountContainer}>
                 <button className={style.accountButton} onClick={toggleDropdown}>
-                    Compte
+                    Account
                 </button>
 
                 {showDropdown && (
@@ -73,7 +73,7 @@ function Header() {
                                 className={style.dropdownItem}
                                 onClick={handleDisconnect}
                             >
-                                Déconnexion
+                                Log Out
                             </button>
                         ) : (
                             <>
@@ -82,14 +82,14 @@ function Header() {
                                     className={style.dropdownItem}
                                     onClick={() => setShowDropdown(false)}
                                 >
-                                    Connexion
+                                    Log In
                                 </Link>
                                 <Link
                                     to="/signin"
                                     className={style.dropdownItem}
                                     onClick={() => setShowDropdown(false)}
                                 >
-                                    Inscription
+                                    Sign In
                                 </Link>
                             </>
                         )}

@@ -16,7 +16,7 @@ const SignIn = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
@@ -31,9 +31,33 @@ const SignIn = () => {
             return;
         }
 
-        console.log("Nom :", formData.name);
-        console.log("Email :", formData.email);
-        console.log("Mot de passe :", formData.password);
+        try {
+            const response = await fetch("http://localhost:5000/users/signup", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            if (!response.ok) {
+                const {message} = await response.json();
+                throw new Error(message || "Sign up failed.");
+            }
+
+            const data = await response.json();
+            console.log(data);
+
+            setError("");
+            setSuccess("Inscription réussie !");
+            // Actions supplémentaires (ex: redirection ou sauvegarde de l'utilisateur)
+        } catch (err) {
+            setError(err.message);
+            setSuccess("");
+        }
+
 
         setError("");
         setSuccess("Inscription réussie !");
