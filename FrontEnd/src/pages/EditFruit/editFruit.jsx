@@ -66,7 +66,7 @@ const EditFruit = () => {
             }
 
             setSuccess("Fruit mis à jour avec succès !");
-            setTimeout(() => navigate("/fruits/" + id), 2000); // Redirection après mise à jour
+            setTimeout(() => navigate("/fruits/" + id), 100); // Redirection après mise à jour
         } catch (err) {
             setError(err.message);
         }
