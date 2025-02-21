@@ -3,17 +3,40 @@ import fruits from "../../data/fruits.json";
 import DetailCard from "../../services/components/Cards/DetailCard/detailCard.jsx";
 import style from "./fruitDetails.module.css";
 import {useCart} from "../../services/cart/cartContext.jsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 const FruitDetails = () => {
     const { id } = useParams();
-
     const { addToCart } = useCart();
-
     const [quantity, setQuantity] = useState(1);
 
-    const fruit = fruits.find(fruit => fruit.id === parseInt(id));
+    const [fruit, setFruit] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const fetchFruitFromId = async () => {
+        try {
+            const response = await fetch(`http://localhost:5000/fruits/${id}`);
+            if (!response.ok) {
+                throw new Error(`${response.status}`);
+            }
+            const data = await response.json();
+            setFruit(data);
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchFruitFromId();
+    }, []);
+
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error : {error}</p>;
+
 
     if (!fruit) {
         return <p>Fruit introuvable</p>; // Gère les cas où l'ID n'existe pas dans le JSON

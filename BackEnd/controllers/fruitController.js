@@ -12,7 +12,7 @@ class fruitController {
         console.log("before request")
         const fruits = await Fruit.find()
         console.log(fruits)
-        res.status(200).json(fruits).send()
+        res.status(200).json(fruits)
         // res.send('Hello World')
     }
 

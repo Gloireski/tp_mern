@@ -1,12 +1,12 @@
 ﻿import style from "./itemCard.module.css";
 import {useNavigate} from "react-router-dom";
 
-const ItemCard = ({ name, image_url, id }) => {
+const ItemCard = ({ name, image_url, _id }) => {
 
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate(`/fruits/${id}`);
+        navigate(`/fruits/${_id}`);
     }
 
     return (

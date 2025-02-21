@@ -1,24 +1,25 @@
 const express = require('express')
 const app = express()
 const dotenv = require('dotenv')
+const cors = require('cors')
+app.use(cors())
 
 // const dbCon = require('./utils/db')
-const connectDB = require('./utils/db')
+const connectDB = require('./utils/db.js')
 
 connectDB()
 
-const filmRoutes = require('./routes/filmRoutes')
-const fruitRoutes = require('./routes/fruitRoutes')
+const fruitRoutes = require('./routes/fruitRoutes.js')
 
 // dbCon()
 
 dotenv.config()
-const port = process.env.PORT || 3000
+const port = process.env.BACK_END_PORT || 5000
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
 app.use(express.json())
-app.use('/', require('./routes/index'))
-app.use('/films', filmRoutes)
+const indexRoutes = require('./routes/index.js')
+app.use('/', indexRoutes)
 app.use('/fruits', fruitRoutes)

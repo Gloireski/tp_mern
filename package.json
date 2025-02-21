@@ -1,16 +1,18 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "BackEnd/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon BackEnd/index.js"
   },
   "type": "commonjs",
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@tanstack/react-query": "^5.66.8",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "joi": "^17.13.3",
