@@ -30,7 +30,7 @@ const fruitSchema =  new mongoose.Schema({
     },
     image_url: {
         type: String,
-        required: true
+        required: false
     },
 }
 , { timestamps: true })
@@ -72,8 +72,8 @@ const fruitValidation = Joi.object({
         'string.base': 'Origine doit être une chaîne de caractères',
         'string.empty': 'Origine ne peut pas être vide',
         'any.required': 'Origine est requise'
-    }),
-  
+    })
+
 })
 
 module.exports = { Fruit, fruitValidation }

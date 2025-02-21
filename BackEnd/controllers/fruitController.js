@@ -27,21 +27,32 @@ class fruitController {
 
         try {
             // console.log(req.body)
-            const { error, value } = fruitValidation.validate(req.body)
-            if (error) {
-                return res.status(400).json({ msg: error.details[0].message})
-            }
+            const { name, category, description, price, origin } = req.body
+            // if (error) {
+            //     return res.status(400).json({ msg: error.details[0].message})
+            // }
             const image_url = req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null;
             console.log(image_url)
             let fruit = await Fruit.findOne({ name: req.body.name, origin: req.body.origin })
             if (fruit) {
                 return res.status(400).json({ message: "fruit existant" })
             }
-            fruit = new Fruit({...value, image_url})
-            console.log(value)
+            fruit = new Fruit({
+                name,
+                category,
+                description,
+                price,
+                origin,
+                image_url
+            })
+            
             await fruit.save()
             res.status(201).send({
-                ...value,
+                name,
+                category,
+                description,
+                price,
+                origin,
                 image_url
             })
         } catch (error) {

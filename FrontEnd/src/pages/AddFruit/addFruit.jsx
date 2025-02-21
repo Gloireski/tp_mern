@@ -131,7 +131,7 @@ const AddFruit = () => {
                         type="file"
                         name="image_url"
                         value={formData.image_url}
-                        onChange={handleInputChange}
+                        onChange={handleFileChange}
                         required
                     />
                 </div>
