@@ -69,7 +69,6 @@ function Header() {
                 {showDropdown && (
                     <div className={style.dropdownMenu}>
                         {isConnected ? (
-                            // Si l'utilisateur est connecté
                             <button
                                 className={style.dropdownItem}
                                 onClick={handleDisconnect}
@@ -77,7 +76,6 @@ function Header() {
                                 Déconnexion
                             </button>
                         ) : (
-                            // Si l'utilisateur n'est pas connecté
                             <>
                                 <Link
                                     to="/login"

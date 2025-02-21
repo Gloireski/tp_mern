@@ -17,7 +17,7 @@ const LogIn = () => {
         e.preventDefault();
 
         if (!formData.email || !formData.password) {
-            setError("Veuillez remplir tous les champs !");
+            setError("Fill all the fields.");
             return;
         }
 

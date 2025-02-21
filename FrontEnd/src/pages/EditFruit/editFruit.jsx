@@ -15,7 +15,6 @@ const EditFruit = () => {
         description: "",
         price: "",
         origin: "",
-        image_url: "",
     });
 
     const [error, setError] = useState("");
@@ -55,23 +54,18 @@ const EditFruit = () => {
         setSuccess("");
 
         try {
-            const finalData = {
-                name: formData.name,
-                category: formData.category,
-                description: formData.description,
-                price: formData.price,
-                origin: formData.origin,
-                image_url: formData.image_url
-            }
-            console.log(finalData);
+            const formDataToSend = new FormData();
+            formDataToSend.append("name", formData.name);
+            formDataToSend.append("category", formData.category);
+            formDataToSend.append("description", formData.description);
+            formDataToSend.append("price", formData.price);
+            formDataToSend.append("origin", formData.origin);
+            formDataToSend.append("image", imageFile);
 
             console.log(`http://localhost:5000/fruits/${id}`);
             const response = await fetch(`http://localhost:5000/fruits/${id}`, {
                 method: "PUT",
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-                body: JSON.stringify(finalData),
+                body: formDataToSend,
             });
 
             if (!response.ok) {

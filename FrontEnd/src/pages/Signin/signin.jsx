@@ -19,20 +19,18 @@ const SignIn = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Validation simple
         if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-            setError("Veuillez remplir tous les champs !");
+            setError("Fill all the fields.");
             setSuccess("");
             return;
         }
 
         if (formData.password !== formData.confirmPassword) {
-            setError("Les mots de passe ne correspondent pas !");
+            setError("Passwords do not match.");
             setSuccess("");
             return;
         }
 
-        // Pour le moment, affichez dans la console
         console.log("Nom :", formData.name);
         console.log("Email :", formData.email);
         console.log("Mot de passe :", formData.password);
