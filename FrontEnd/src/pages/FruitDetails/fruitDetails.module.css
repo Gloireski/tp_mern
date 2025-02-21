@@ -44,3 +44,63 @@
     background-color: #4cae4c;
     transform: scale(1.05);
 }
+
+.detailContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.addToCartSide {
+    margin: 100px 0 100px 0;
+    padding: 50px 150px 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.quantityContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.decrementButton,
+.incrementButton {
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+}
+
+.quantityInput {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.editButtonsContainer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.editButton,
+.deleteButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}

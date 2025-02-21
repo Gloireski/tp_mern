@@ -39,12 +39,21 @@ function Header() {
 
     return (
         <header className={style.header}>
+<<<<<<< HEAD
             <h1 className={style.title}>
                 <Link to="/">
                     <img src="https://i.imgur.com/6RTXEns.png" alt="LePanierVert Logo" className={style.logo} />
                 </Link>
             </h1>
         
+=======
+            <h1 className={style.title}><Link to="/">Fruit Market</Link></h1>
+
+            <nav>
+                <Link to="/cart">Panier</Link>
+            </nav>
+
+>>>>>>> 402aa6fcad60b409116e9cfc7926b5f63e875546
             <div className={style.searchContainer}>
                 <input
                     type="text"

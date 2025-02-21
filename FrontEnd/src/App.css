@@ -1,8 +1,14 @@
 
 
 .App {
+<<<<<<< HEAD
   text-align: center;
   
+=======
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+>>>>>>> 402aa6fcad60b409116e9cfc7926b5f63e875546
 }
 
 .App-logo {
@@ -40,8 +46,22 @@
   }
 }
 
+<<<<<<< HEAD
 body {
   padding-top: 60px; /* Adjust the padding as needed */
   background-color: #fff;
 }
 
+=======
+header {
+  flex-shrink: 0;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  flex-shrink: 0;
+}
+>>>>>>> 402aa6fcad60b409116e9cfc7926b5f63e875546
