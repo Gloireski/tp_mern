@@ -1,21 +1,46 @@
-﻿import { useState } from "react";
+﻿import {useEffect, useState} from "react";
 import { useNavigate, Link } from "react-router-dom";
-import fruits from "../../../data/fruits.json";
 import style from "./header.module.css";
 
 function Header() {
     const [query, setQuery] = useState("");
+
+    const [lefruits, setleFruits] = useState([]);
     const navigate = useNavigate();
 
+
+    const fetchFruits = async () => {
+    try {
+        const response = await fetch("http://localhost:5000/fruits");
+        if (!response.ok) {
+            throw new Error(`HTTP : ${response.status}`);
+        }
+        const data = await response.json();
+        setleFruits(data);
+    } catch (err) {
+        console.log(err);
+    } finally {
+    }
+};
+
+useEffect(() => {
+    console.log("Fruits");
+
+    fetchFruits();
+}, []);
+
+
+lefruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
+
     const handleSearch = () => {
-        const fruit = fruits.find(
+        const fruit = lefruits.find(
             (fruit) =>
                 fruit.name.toLowerCase() === query.toLowerCase() ||
                 fruit.id.toString() === query
         );
 
         if (fruit) {
-            navigate(`/fruits/${fruit.id}`);
+            navigate(`/fruits/${fruit._id}`);
         } else {
             alert("Aucun fruit correspondant.");
         }
