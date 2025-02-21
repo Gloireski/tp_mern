@@ -27,15 +27,17 @@ function Header() {
         }
     };
 
-    /*
-    <nav className={style.nav}>
+    const [isConnected, setIsConnected] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false);
 
-        <Link to="/">Accueil</Link>
-        <Link to="/fruits">Fruits</Link>
-        <Link to="/">Contact</Link>
+    const toggleDropdown = () => {
+        setShowDropdown(!showDropdown);
+    };
+    const handleDisconnect = () => {
+        setIsConnected(false);
+        setShowDropdown(false);
+    };
 
-    </nav>
-    */
 
     return (
         <header className={style.header}>
@@ -59,6 +61,44 @@ function Header() {
                     Search
                 </button>
             </div>
+            <div className={style.accountContainer}>
+                <button className={style.accountButton} onClick={toggleDropdown}>
+                    Compte
+                </button>
+
+                {showDropdown && (
+                    <div className={style.dropdownMenu}>
+                        {isConnected ? (
+                            // Si l'utilisateur est connecté
+                            <button
+                                className={style.dropdownItem}
+                                onClick={handleDisconnect}
+                            >
+                                Déconnexion
+                            </button>
+                        ) : (
+                            // Si l'utilisateur n'est pas connecté
+                            <>
+                                <Link
+                                    to="/login"
+                                    className={style.dropdownItem}
+                                    onClick={() => setShowDropdown(false)}
+                                >
+                                    Connexion
+                                </Link>
+                                <Link
+                                    to="/signin"
+                                    className={style.dropdownItem}
+                                    onClick={() => setShowDropdown(false)}
+                                >
+                                    Inscription
+                                </Link>
+                            </>
+                        )}
+                    </div>
+                )}
+            </div>
+
         </header>
     );
 }

@@ -5,6 +5,8 @@ import Fruits from "../../pages/Fruits/fruits.jsx";
 import Cart from "../../pages/Cart/cart.jsx";
 import AddFruit from "../../pages/AddFruit/addFruit.jsx";
 import EditFruit from "../../pages/EditFruit/editFruit.jsx";
+import Login from "../../pages/Login/login.jsx";
+import Signin from "../../pages/Signin/signin.jsx";
 
 const RoutePosts = () => {
     return <>
@@ -16,6 +18,8 @@ const RoutePosts = () => {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/add" element={<AddFruit />} />
                 <Route path="/edit/:id" element={<EditFruit />} />
+                <Route path="login" element={<Login />} />
+                <Route path="signin" element={<Signin />} />
                 <Route path="*" element={<ErrorPage />}></Route>
             </Routes>
     </>
