@@ -1,14 +1,16 @@
-﻿import {useEffect, useState} from "react";
+﻿import { useEffect, useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import style from "./header.module.css";
+import { AppContext } from '../../../AppContext';
 
 function Header() {
     const [query, setQuery] = useState("");
-
+    const { appInfo, setUser } = useContext(AppContext);
     const [lefruits, setleFruits] = useState([]);
     const navigate = useNavigate();
 
-
+    // const token = localStorage.getItem('token')
+    console.log(appInfo)
     const fetchFruits = async () => {
     try {
         const response = await fetch("http://localhost:5000/fruits");
@@ -97,13 +99,18 @@ useEffect(() => {
 
                 {showDropdown && (
                     <div className={style.dropdownMenu}>
-                        {isConnected ? (
-                            <button
-                                className={style.dropdownItem}
-                                onClick={handleDisconnect}
-                            >
-                                Log Out
-                            </button>
+                        {appInfo.isLoggedIn ? (
+                            <>
+                                <button
+                                    className={style.dropdownItem}
+                                    onClick={handleDisconnect}
+                                >
+                                    Log Out
+                                </button>
+                                <button className={style.dropdownItem}>
+                                    Profile
+                                </button>
+                            </>
                         ) : (
                             <>
                                 <Link

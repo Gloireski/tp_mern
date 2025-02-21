@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./login.module.css";
 import {useNavigate} from "react-router-dom";
 import { encode } from 'base-64'
+import { AppContext } from '../../AppContext'
 
 const LogIn = () => {
+    const { appInfo, setUser } = useContext(AppContext);
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -26,7 +28,7 @@ const LogIn = () => {
         }
 
         const auth = encode(`${formData.email}:${formData.password}`)
-        console.log(auth)
+        // console.log(auth)
 
         try {
             // Requête vers l'API de login
@@ -43,9 +45,11 @@ const LogIn = () => {
 
             const data = await response.json();
             console.log(data);
-
+            const { user, token } = data
+            setUser(user, token)
             setError("");
             navigate("/fruits");
+            localStorage.setItem('token', data)
         } catch (err) {
             setError(err.message);
         }

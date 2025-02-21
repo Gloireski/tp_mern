@@ -28,8 +28,8 @@ class authController {
             console.error(e)
             return res.status(401).send(error)
         }
-        console.log(user)
-        console.log(sha1(password))
+        // console.log(user)
+        // console.log(sha1(password))
         if (!user || sha1(password) !== user.password) {
             res.status(401).json({ success: false,
                 message: 'Invalid email or password', });
@@ -43,7 +43,7 @@ class authController {
         redisClient.set(`token_${user.id}`, token, 'EX', 3600); // Expire in 1 hour
 
         // await redisClient.set(`auth_${token}`, user.id.toString(), 24 * 60 * 60);
-        res.status(200).json({ token })
+        res.status(200).json({ token, user })
     }
 
     static async logout(req, res){
