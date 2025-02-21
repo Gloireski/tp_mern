@@ -7,8 +7,9 @@ const AddFruit = () => {
         description: "",
         price: "",
         origin: "",
-        image_url: "",
     });
+    const [imageFile, setImageFile] = useState(null);
+
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -20,23 +21,38 @@ const AddFruit = () => {
         });
     };
 
+    const handleFileChange = (e) => {
+        setImageFile(e.target.files[0]); // Store the selected file
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
         setSuccess("");
 
+        const formDataToSend = new FormData();
+        formDataToSend.append("name", formData.name);
+        formDataToSend.append("category", formData.category);
+        formDataToSend.append("description", formData.description);
+        formDataToSend.append("price", formData.price);
+        formDataToSend.append("origin", formData.origin);
+        formDataToSend.append("image", imageFile);
+
+        for (let pair of formDataToSend.entries()) {
+            console.log(`${pair[0]}: ${pair[1]}`);
+        }
+
+
         try {
             const response = await fetch("http://localhost:5000/fruits", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                body: formDataToSend,
             });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message || "Échec de l'ajout du fruit.");
+                console.log(errorData);
+                throw new Error(errorData.message);
             }
 
             const data = await response.json();
@@ -47,8 +63,8 @@ const AddFruit = () => {
                 description: "",
                 price: "",
                 origin: "",
-                image_url: "",
             });
+            setImageFile(null);
         } catch (err) {
             setError(err.message);
         }

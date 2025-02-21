@@ -47,16 +47,23 @@ const EditFruit = () => {
         setSuccess("");
 
         try {
-            const { _id, createdAt, updatedAt, __v, ...dataToSubmit } = formData;
-            console.log(dataToSubmit);
+            const finalData = {
+                name: formData.name,
+                category: formData.category,
+                description: formData.description,
+                price: formData.price,
+                origin: formData.origin,
+                image_url: formData.image_url
+            }
+            console.log(finalData);
 
             console.log(`http://localhost:5000/fruits/${id}`);
             const response = await fetch(`http://localhost:5000/fruits/${id}`, {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "multipart/form-data",
                 },
-                body: JSON.stringify(dataToSubmit),
+                body: JSON.stringify(finalData),
             });
 
             if (!response.ok) {
@@ -66,7 +73,7 @@ const EditFruit = () => {
             }
 
             setSuccess("Fruit mis à jour avec succès !");
-            setTimeout(() => navigate("/fruits/" + id), 100); // Redirection après mise à jour
+            navigate("/fruits/" + id)
         } catch (err) {
             setError(err.message);
         }
@@ -130,7 +137,7 @@ const EditFruit = () => {
                 <div>
                     <label>Image URL :</label>
                     <input
-                        type="text"
+                        type="file"
                         name="image_url"
                         value={formData.image_url}
                         onChange={handleInputChange}
