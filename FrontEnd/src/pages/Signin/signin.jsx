@@ -3,10 +3,11 @@ import styles from "./signin.module.css";
 
 const SignIn = () => {
     const [formData, setFormData] = useState({
-        name: "",
+        username: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        firstName: "",
+        lastName: "",
     });
 
     const [error, setError] = useState("");
@@ -19,31 +20,23 @@ const SignIn = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
-            setError("Fill all the fields.");
-            setSuccess("");
-            return;
-        }
-
-        if (formData.password !== formData.confirmPassword) {
-            setError("Passwords do not match.");
-            setSuccess("");
-            return;
-        }
-
         try {
             const response = await fetch("http://localhost:5000/users/signup", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({
-                    name: formData.name,
+                    username: formData.username,
                     email: formData.email,
                     password: formData.password,
+                    firstname: formData.firstName,
+                    lastname: formData.lastName,
+                    role: "admin",
                 }),
             });
 
             if (!response.ok) {
                 const {message} = await response.json();
+                console.log(message)
                 throw new Error(message || "Sign up failed.");
             }
 
@@ -72,9 +65,9 @@ const SignIn = () => {
                     <br />
                     <input
                         type="text"
-                        name="name"
-                        id="name"
-                        value={formData.name}
+                        name="username"
+                        id="username"
+                        value={formData.username}
                         onChange={handleChange}
                         required
                         className={styles.input}
@@ -107,13 +100,26 @@ const SignIn = () => {
                     />
                 </div>
                 <div className={styles.inputGroup}>
-                    <label htmlFor="confirmPassword">Confirm Password :</label>
+                    <label htmlFor="confirmPassword">First Name :</label>
                     <br />
                     <input
-                        type="password"
-                        name="confirmPassword"
-                        id="confirmPassword"
-                        value={formData.confirmPassword}
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        value={formData.firstname}
+                        onChange={handleChange}
+                        required
+                        className={styles.input}
+                    />
+                </div>
+                <div className={styles.inputGroup}>
+                    <label htmlFor="confirmPassword">Last Name :</label>
+                    <br />
+                    <input
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        value={formData.lastname}
                         onChange={handleChange}
                         required
                         className={styles.input}

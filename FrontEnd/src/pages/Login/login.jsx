@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./login.module.css";
 import {useNavigate} from "react-router-dom";
+import { encode } from 'base-64'
 
 const LogIn = () => {
     const [formData, setFormData] = useState({
@@ -23,16 +24,20 @@ const LogIn = () => {
             setError("Fill all the fields.");
             return;
         }
+
+        const auth = encode(`${formData.email}:${formData.password}`)
+        console.log(auth)
+
         try {
             // Requête vers l'API de login
             const response = await fetch("http://localhost:5000/auth/login", {
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(formData),
+                method: "GET",
+                headers: {"Content-Type": "application/json", "authorization": `Basic ${auth}`},
             });
 
             if (!response.ok) {
                 const {message} = await response.json();
+                console.log(message)
                 throw new Error(message || "Login failed.");
             }
 
