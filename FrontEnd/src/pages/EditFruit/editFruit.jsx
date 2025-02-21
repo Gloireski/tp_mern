@@ -1,9 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 
 const EditFruit = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+
+    const fileInputRef = useRef(null); // Ref for the file input
+    const [imageFile, setImageFile] = useState(null);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -16,6 +20,10 @@ const EditFruit = () => {
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+
+    const handleFileChange = (e) => {
+        setImageFile(e.target.files[0]); // Store the selected file
+    };
 
     useEffect(() => {
         const fetchFruit = async () => {
@@ -71,7 +79,9 @@ const EditFruit = () => {
                 console.log(errorData);
                 throw new Error(errorData.message);
             }
-
+            if (fileInputRef.current) {
+                fileInputRef.current.value = ""; // This is allowed
+            }
             setSuccess("Fruit mis à jour avec succès !");
             navigate("/fruits/" + id)
         } catch (err) {
@@ -140,7 +150,8 @@ const EditFruit = () => {
                         type="file"
                         name="image_url"
                         value={formData.image_url}
-                        onChange={handleInputChange}
+                        onChange={handleFileChange}
+                        ref={fileInputRef}
                         required
                     />
                 </div>
