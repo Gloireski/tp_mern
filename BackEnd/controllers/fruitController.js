@@ -47,7 +47,7 @@ class fruitController {
             })
             
             await fruit.save()
-            res.status(201).send({
+            res.status(201).json({
                 name,
                 category,
                 description,
@@ -78,12 +78,18 @@ class fruitController {
             return res.status(404).send(`Aucun fruit associé à l'id ${id}`)
         }
         try {
-            const { error, value } = fruitValidation.validate(req.body)
-            if (error) {
-                return res.status(400).json({msg: error.details[0].message})
+            // console.log(req.body)
+            const { name, category, description, price, origin } = req.body
+            const image_url = req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null;
+            if (!image_url) {
+                return res.status(400).json({msg: "Image missing"})
+            }
+            // const { error, value } = fruitValidation.validate(req.body)
+            if (!req.body) {
+                return res.status(400).json({msg: "fields missings"})
             }
             console.log("etape maj")
-            const { name, category, description, price, origin, image_url } = req.body
+            // const { name, category, description, price, origin, image_url } = req.body
             fruit = await Fruit.findByIdAndUpdate(
                 id,
                 {
