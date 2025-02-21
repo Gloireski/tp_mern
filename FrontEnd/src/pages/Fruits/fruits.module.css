@@ -1,0 +1,121 @@
+/* .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    padding: none;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    background-color: #000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: none;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+/* gap: 1.5rem; /* More space between items */
+/* padding: 1rem; Added padding for better spacing */
+/* } */
+
+/* .gridItem {
+    background: #fffef9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+}
+
+.hero-section {
+    width: 100%;
+    height: 500px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}  */
+
+
+.fruits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.category {
+    background: #222;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.fruitgrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* 2x2 layout */
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Make sure ItemCard styles look good */
+.card {
+    background-color: #fffef9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .fruit-grid {
+        grid-template-columns: repeat(1, 1fr); /* Stack items in smaller screens */
+    }
+}
+
+
+nav b {
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+    color: #222;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
