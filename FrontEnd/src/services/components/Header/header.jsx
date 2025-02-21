@@ -41,11 +41,16 @@ function Header() {
 
     return (
         <header className={style.header}>
-            <h1 className={style.title}><Link to="/">Fruit Market</Link></h1>
+            <h1 className={style.title}>
+                <Link to="/">
+                    <img src="https://i.imgur.com/6RTXEns.png" alt="LePanierVert Logo" className={style.logo} />
+                </Link>
+            </h1>
 
             <nav>
-                <Link to="/cart">Panier</Link>
-                <Link to="/add">Add Fruit</Link>
+                <Link to="/cart">
+                    <img src="https://i.imgur.com/HP7klMt.png" alt="Panier" width="20" height="20" className={style.panier} />
+                </Link>
             </nav>
 
             <div className={style.searchContainer}>
