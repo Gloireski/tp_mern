@@ -1,4 +1,4 @@
-﻿import {useParams} from "react-router-dom";
+﻿import {useNavigate, useParams} from "react-router-dom";
 import fruits from "../../data/fruits.json";
 import DetailCard from "../../services/components/Cards/DetailCard/detailCard.jsx";
 import style from "./fruitDetails.module.css";
@@ -14,6 +14,8 @@ const FruitDetails = () => {
     const [fruit, setFruit] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    const navigate = useNavigate();
 
     const fetchFruitFromId = async () => {
         try {
@@ -55,6 +57,9 @@ const FruitDetails = () => {
         }
     };
 
+    const goToEdit = () => {
+        navigate("/edit/" + fruit._id);
+    }
 
 
     return (
@@ -91,7 +96,7 @@ const FruitDetails = () => {
         </div>
 
         <div className={style.editButtonsContainer}>
-            <button className={`${style.button} ${style.editButton}`}>
+            <button className={`${style.button} ${style.editButton}`} onClick={() => goToEdit()}>
                 Edit
             </button>
             <button className={`${style.button} ${style.deleteButton}`}>

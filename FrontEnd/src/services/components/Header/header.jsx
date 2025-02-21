@@ -43,6 +43,7 @@ function Header() {
 
             <nav>
                 <Link to="/cart">Panier</Link>
+                <Link to="/add">Add Fruit</Link>
             </nav>
 
             <div className={style.searchContainer}>
