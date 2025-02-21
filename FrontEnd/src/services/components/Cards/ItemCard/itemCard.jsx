@@ -11,11 +11,11 @@ const ItemCard = ({ name, image_url, id }) => {
 
     return (
         <button className={style.card} onClick={handleClick} style={{ cursor: "pointer"}}>
-            <img src={image_url} alt={name} />
-            <h1>{name}</h1>
+            <img src={image_url} alt={name} className={style.image}/>
+            <h1 style = {{ fontSize: "15px"}}>{name}</h1>
         </button>
     );
 };
 
 
-export { ItemCard };
+export default ItemCard ;

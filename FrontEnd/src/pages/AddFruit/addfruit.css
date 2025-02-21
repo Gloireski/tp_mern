@@ -1,0 +1,62 @@
+/* Form styles */
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px 40px 20px 20px; 
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+  
+  label {
+    display: block;
+    font-size: 16px;
+    margin: 10px 0 5px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 20px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #33b033;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #44656d;
+  }
+  
+  /* Error and Success message styles */
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  p.error {
+    color: red;
+  }
+  
+  p.success {
+    color: green;
+  }
+  

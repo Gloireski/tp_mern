@@ -1,9 +1,12 @@
+
+
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
@@ -25,7 +28,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #fff;
 }
 
 @keyframes App-logo-spin {
@@ -36,3 +39,9 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  padding-top: 60px; /* Adjust the padding as needed */
+  background-color: #fff;
+}
+
