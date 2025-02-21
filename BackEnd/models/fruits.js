@@ -73,13 +73,7 @@ const fruitValidation = Joi.object({
         'string.empty': 'Origine ne peut pas être vide',
         'any.required': 'Origine est requise'
     }),
-    image_url: Joi.string()
-    .required()
-    .messages({
-        'string.base': 'Image URL doit être une chaîne de caractères',
-        'string.empty': 'Image URL ne peut pas être vide',
-        'any.required': 'Image URL est requis'
-    })
+  
 })
 
 module.exports = { Fruit, fruitValidation }

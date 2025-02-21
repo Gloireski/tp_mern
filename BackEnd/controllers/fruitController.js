@@ -22,20 +22,28 @@ class fruitController {
      * @param {*} res 
      */
     static async addFruit(req, res) {
+        // const { name, category, description, price, origin } = req.body;
+        console.log(req.body)
+
         try {
-            console.log(req.body)
+            // console.log(req.body)
             const { error, value } = fruitValidation.validate(req.body)
             if (error) {
                 return res.status(400).json({ msg: error.details[0].message})
             }
+            const image_url = req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null;
+            console.log(image_url)
             let fruit = await Fruit.findOne({ name: req.body.name, origin: req.body.origin })
             if (fruit) {
                 return res.status(400).json({ message: "fruit existant" })
             }
-            fruit = new Fruit(value)
+            fruit = new Fruit({...value, image_url})
             console.log(value)
             await fruit.save()
-            res.status(201).send(fruit)
+            res.status(201).send({
+                ...value,
+                image_url
+            })
         } catch (error) {
             console.log(error)
             res.status(500).send("Erreur lors de l'ajout du fruit")
