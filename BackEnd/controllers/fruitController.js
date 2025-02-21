@@ -81,6 +81,7 @@ class fruitController {
             // console.log(req.body)
             const { name, category, description, price, origin } = req.body
             const image_url = req.file ? `http://localhost:5000/uploads/${req.file.filename}` : null;
+            console.log(req.file)
             if (!image_url) {
                 return res.status(400).json({msg: "Image missing"})
             }

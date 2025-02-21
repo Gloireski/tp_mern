@@ -24,23 +24,6 @@ const EditFruit = () => {
         setImageFile(e.target.files[0]); // Store the selected file
     };
 
-    useEffect(() => {
-        const fetchFruit = async () => {
-            try {
-                const response = await fetch(`http://localhost:5000/fruits/${id}`);
-                if (!response.ok) {
-                    throw new Error("Impossible de charger les informations du fruit.");
-                }
-                const data = await response.json();
-                setFormData(data);
-            } catch (err) {
-                setError(err.message);
-            }
-        };
-
-        fetchFruit();
-    }, [id]);
-
     const handleInputChange = (e) => {
         setFormData({
             ...formData,
@@ -61,6 +44,7 @@ const EditFruit = () => {
             formDataToSend.append("price", formData.price);
             formDataToSend.append("origin", formData.origin);
             formDataToSend.append("image", imageFile);
+            console.log(imageFile)
 
             console.log(`http://localhost:5000/fruits/${id}`);
             const response = await fetch(`http://localhost:5000/fruits/${id}`, {
@@ -81,7 +65,24 @@ const EditFruit = () => {
         } catch (err) {
             setError(err.message);
         }
-    };
+    }
+
+    useEffect(() => {
+        const fetchFruit = async () => {
+            try {
+                const response = await fetch(`http://localhost:5000/fruits/${id}`);
+                if (!response.ok) {
+                    throw new Error("Impossible de charger les informations du fruit.");
+                }
+                const data = await response.json();
+                setFormData(data);
+            } catch (err) {
+                setError(err.message);
+            }
+        };
+
+        fetchFruit();
+    }, [id])
 
     return (
         <div>
@@ -139,11 +140,10 @@ const EditFruit = () => {
                     />
                 </div>
                 <div>
-                    <label>Image URL :</label>
+                    <label>Image :</label>
                     <input
                         type="file"
                         name="image_url"
-                        value={formData.image_url}
                         onChange={handleFileChange}
                         ref={fileInputRef}
                         required

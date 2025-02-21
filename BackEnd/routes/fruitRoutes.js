@@ -9,7 +9,7 @@ router.get('/:id', fruitController.getFruitById)
 
 router.post('/', upload.single("image"), fruitController.addFruit)
 
-router.put('/:id', fruitController.editFruit)
+router.put('/:id',  upload.single("image"), fruitController.editFruit)
 
 router.delete('/:id', fruitController.deleteFruit)
 
