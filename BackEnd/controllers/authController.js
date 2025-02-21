@@ -29,6 +29,7 @@ class authController {
             return res.status(401).send(error)
         }
         console.log(user)
+        console.log(sha1(password))
         if (!user || sha1(password) !== user.password) {
             res.status(401).json({ success: false,
                 message: 'Invalid email or password', });

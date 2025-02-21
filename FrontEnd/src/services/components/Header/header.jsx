@@ -24,13 +24,12 @@ function Header() {
 };
 
 useEffect(() => {
-    console.log("Fruits");
-
+    // console.log("Fruits");
     fetchFruits();
 }, []);
 
 
-lefruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
+// lefruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
 
     const handleSearch = () => {
         const fruit = lefruits.find(

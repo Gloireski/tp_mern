@@ -37,6 +37,7 @@ class userController {
      */
     static async signUp(req, res) {
         const { error, value } = userValidation.validate(req.body)
+        console.log(value)
         if (error) {
             return res.status(400).json({ message: error.details[0].message})
         }
@@ -45,10 +46,7 @@ class userController {
             return res.status(400).json({ message: "utilisateur existe" })
         }
         try {
-            const newUser = new User({
-                ...value,
-                password: sha1(req.body.password)
-            })
+            const newUser = new User(value)
             console.log(value)
             await newUser.save()
             res.status(201).send(newUser)

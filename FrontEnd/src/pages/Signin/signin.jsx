@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import styles from "./signin.module.css";
+import sha1 from "sha1";
+import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -27,7 +30,7 @@ const SignIn = () => {
                 body: JSON.stringify({
                     username: formData.username,
                     email: formData.email,
-                    password: formData.password,
+                    password: sha1(formData.password),
                     firstname: formData.firstName,
                     lastname: formData.lastName,
                     role: "admin",
@@ -35,25 +38,25 @@ const SignIn = () => {
             });
 
             if (!response.ok) {
-                const {message} = await response.json();
+                const { message } = await response.json();
                 console.log(message)
                 throw new Error(message || "Sign up failed.");
+            } else {
+                const data = await response.json();
+                console.log(data);
+    
+                setError("");
+                setSuccess("Inscription réussie !");
+                navigate("/login")
             }
 
-            const data = await response.json();
-            console.log(data);
-
-            setError("");
-            setSuccess("Inscription réussie !");
+        
             // Actions supplémentaires (ex: redirection ou sauvegarde de l'utilisateur)
         } catch (err) {
             setError(err.message);
+            // console.log(err.message)
             setSuccess("");
         }
-
-
-        setError("");
-        setSuccess("Inscription réussie !");
     };
 
     return (

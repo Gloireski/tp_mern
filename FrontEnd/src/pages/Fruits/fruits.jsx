@@ -27,15 +27,14 @@ const Fruits = () => {
     };
 
     useEffect(() => {
-        console.log("Fruits");
-
+        // console.log("Fruits");
         fetchFruits();
     }, []);
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error}</p>;
 
-    fruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
+    // fruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
 
     return (
         <>
