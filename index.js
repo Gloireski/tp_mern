@@ -10,6 +10,8 @@ connectDB()
 const filmRoutes = require('./routes/filmRoutes')
 const fruitRoutes = require('./routes/fruitRoutes')
 const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/userRoutes')
+const indexRoutes = require('./routes/index')
 
 // dbCon()
 
@@ -20,7 +22,8 @@ app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
 app.use(express.json())
-app.use('/', require('./routes/index'))
+app.use('/', indexRoutes)
 app.use('/films', filmRoutes)
 app.use('/fruits', fruitRoutes)
 app.use('/auth', authRoutes)
+app.use('/users', userRoutes)

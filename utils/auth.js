@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 
 const jwt = require('jsonwebtoken');
+const redis = require('redis');
 
 // get config vars
 dotenv.config();

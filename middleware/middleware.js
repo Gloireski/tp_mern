@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 const dotenv = require('dotenv')
+const { checkInvalidatedToken } = require('../utils/redis')
+const redisClient = require('../utils/redis')
 
 dotenv.config()
 
@@ -10,43 +12,68 @@ const date = (req, res, next) => {
     next()
 }
 
-
-function authenticateToken(req, res, next) {
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-
-  if (token == null) return res.sendStatus(401)
-
-  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    console.log(err)
-
-    if (err) return res.sendStatus(403)
-
-    req.user = user
-
-    next()
-  })
-}
-
 // Middleware for JWT Token Validation
-const validateToken = (req, res, next) => {
+const validateToken = async (req, res, next) => {
     const authHeader = req.headers.authorization;
 
     if (authHeader) {
         const token = authHeader.split(' ')[1]; // Bearer <token>
-        console.log(token);
+        // console.log(token)
 
-        jwt.verify(token, process.env.TOKEN_SECRET, (err, payload) => {
-            if (err) {
+        try {
+        //     jwt.verify(token, process.env.TOKEN_SECRET, (err, payload) => {
+        //         if (err) {
+        //             return res.status(403).json({
+        //                 success: false,
+        //                 message: 'Invalid token',
+        //             });
+        //         } 
+    
+        //     console.log("valid token")
+        // })
+            const user = jwt.verify(token, process.env.TOKEN_SECRET)
+            if (!user) {
                 return res.status(403).json({
                     success: false,
                     message: 'Invalid token',
                 });
-            } else {
-                req.user = payload;
-                next();
             }
-        });
+            const data = await redisClient.get(`blacklist_${token}`);
+
+            if (data) {
+                return res.status(403).json({ message: 'Token is invalidated.' });
+            }
+
+            req.payload = user;
+            next();
+        } catch(error){
+            return res.status(500).json({ message: `Internal server error. ${error}` });
+        }
+        // jwt.verify(token, process.env.TOKEN_SECRET, (err, payload) => {
+        //     if (err) {
+        //         return res.status(403).json({
+        //             success: false,
+        //             message: 'Invalid token',
+        //         });
+        //     } 
+
+        // console.log("valid token")
+        // redisClient.get(`blacklist_${token}`, (err, data) => {
+        //     console.log("valid token check")  
+        //     if (err) {
+        //     console.log(err)
+        //     return res.status(500).json({ message: 'Internal server error.' });
+        //     }
+
+        //     if (data) {
+        //     return res.status(403).json({ message: 'Token is invalidated.' });
+        //     }
+
+        //     // Attach the user payload to the request object
+        //     req.payload = payload
+        //     next();
+        // })
+        
     } else {
         res.status(401).json({
             success: false,

@@ -11,6 +11,18 @@ const userSchema = new mongoose.Schema({
         required: true,
         lowercase: true
     },
+    email: {
+        type: String,
+        required: true,
+    },
+    firstname: {
+        type: String,
+        required: true
+    },
+    lastname: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true,
@@ -22,7 +34,7 @@ const userSchema = new mongoose.Schema({
     }
 })
 
-const User = new mongoose.model('User', userSchema)
+const User = mongoose.model('User', userSchema)
 
 const userValidation = Joi.object({
     username: Joi.string()
@@ -32,6 +44,27 @@ const userValidation = Joi.object({
             'string.empty': 'username ne peut pas être vide',
             'any.required': 'username est requis'
         }),
+    email: Joi.string()
+        .required()
+        .messages({
+            'string.base': 'email doit être une chaîne de caractères',
+            'string.empty': 'email ne peut pas être vide',
+            'any.required': 'email est requis'
+        }),
+    firstname: Joi.string()
+        .required()
+        .messages({
+            'string.base': 'nom doit être une chaîne de caractères',
+            'string.empty': 'nom ne peut pas être vide',
+            'any.required': 'nom est requis'
+        }),
+    lastname: Joi.string()
+    .required()
+    .messages({
+            'string.base': 'prenom doit être une chaîne de caractères',
+            'string.empty': 'prenom ne peut pas être vide',
+            'any.required': 'prenom est requis'
+    }),
     password: Joi.string()
         .required()
         .messages({

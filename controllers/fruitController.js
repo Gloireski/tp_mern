@@ -28,7 +28,11 @@ class fruitController {
             if (error) {
                 return res.status(400).json({ msg: error.details[0].message})
             }
-            const fruit = new Fruit(value)
+            let fruit = await Fruit.findOne({ name: req.body.name, origin: req.body.origin })
+            if (fruit) {
+                return res.status(400).json({ message: "fruit existant" })
+            }
+            fruit = new Fruit(value)
             console.log(value)
             await fruit.save()
             res.status(201).send(fruit)
