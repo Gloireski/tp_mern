@@ -92,6 +92,7 @@ Le frontend est construit avec **React**, et le backend est alimenté par **Node
    Accéder au fichier .env et s'assurer que mongo démarre sur le même port
 
 2. **🖥️ Lancer l'application** :
+   Démarrer le serveur redis et mongo
    Démarrer le serveur backend
    cd BackEnd
    npm start
