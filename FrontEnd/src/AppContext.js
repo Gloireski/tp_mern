@@ -42,10 +42,10 @@ export const AppProvider = ({ children }) => {
           // fetchFruits()
           return;
       }
-
+      console.log(appState.fruits)
       // Filter fruits whose names start with the query
       const results = appState.fruits.filter((fruit) =>
-          fruit.name.toLowerCase().startsWith(query.toLowerCase())
+          fruit.name.toLowerCase().includes(query.toLowerCase())
       );
 
       setFilteredFruits(results);

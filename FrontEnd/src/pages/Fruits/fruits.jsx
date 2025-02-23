@@ -1,4 +1,5 @@
 ﻿import style from "./fruits.module.css";
+// import styles from "./fruits.module.css"
 import Category from "../../services/components/Cards/CategoryCard/categoryCard.jsx";
 import { useNavigate, Link } from "react-router-dom";
 import {useEffect, useState, useContext} from "react";
@@ -84,13 +85,13 @@ const Fruits = () => {
                 ))}
             </div>
             <div  style = {{ padding: "10px 10px", justifyContent: "center", textAlign : "center"  }}>
-                <nav>
+                <div>
                     <Link to="/add">Add Fruit</Link>
-                </nav>
+                </div>
             </div>
             {filteredFruits.length === 0 && (
             <div style={{ textAlign: 'center', marginTop: '20px' }}>
-                <p>Aucun fruit correspondant.</p>
+                <p className='text-2xl'>Aucun fruit correspondant.</p>
             </div>
             )}
 
