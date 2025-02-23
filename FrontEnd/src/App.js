@@ -12,11 +12,11 @@ function App() {
   return <div className="App">
 
     <Router>
-      <Header></Header>
-      <main>
-      <RoutePosts></RoutePosts>
-      </main>
-      <Footer></Footer>
+      <Header />
+        <main>
+          <RoutePosts />
+        </main>
+      <Footer />
     </Router>
 
 

@@ -33,7 +33,7 @@ const SignIn = () => {
                     password: sha1(formData.password),
                     firstname: formData.firstName,
                     lastname: formData.lastName,
-                    role: "admin",
+                    role: "client",
                 }),
             });
 

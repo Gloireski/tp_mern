@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['admin', 'client'],
+        enum: ['super_admin', 'admin', 'client'],
         required: true
     }
 })
@@ -73,7 +73,7 @@ const userValidation = Joi.object({
             'any.required': 'mot de passe  est requis'
         }),
     role: Joi.string()
-        .valid('admin', 'client')
+        .valid('super_admin', 'admin', 'client')
         .required()
         .messages({
             'string.base': 'role doit être une chaîne de caractères',

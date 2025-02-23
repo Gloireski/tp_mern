@@ -4,54 +4,41 @@ import style from "./header.module.css";
 import { AppContext } from '../../../AppContext';
 
 function Header() {
-    const [query, setQuery] = useState("");
-    const { appInfo, setUser } = useContext(AppContext);
+    // const [query, setQuery] = useState("");
+    const { appState, setFruits, query, setQuery } = useContext(AppContext);
     const [lefruits, setleFruits] = useState([]);
-    const navigate = useNavigate();
-
+    // const [query, setQuery] = useState('');
+    const navigate = useNavigate()
     // const token = localStorage.getItem('token')
-    console.log(appInfo)
+    console.log(appState)
     const fetchFruits = async () => {
-    try {
-        const response = await fetch("http://localhost:5000/fruits");
-        if (!response.ok) {
-            throw new Error(`HTTP : ${response.status}`);
+        try {
+            const response = await fetch("http://localhost:5000/fruits");
+            if (!response.ok) {
+                throw new Error(`HTTP : ${response.status}`);
+            }
+            const data = await response.json();
+            setleFruits(data);
+            setFruits(data);
+        } catch (err) {
+            console.log(err);
+        } finally {
         }
-        const data = await response.json();
-        setleFruits(data);
-    } catch (err) {
-        console.log(err);
-    } finally {
-    }
-};
-
-useEffect(() => {
-    // console.log("Fruits");
-    fetchFruits();
-}, []);
-
-
-// lefruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
-
-    const handleSearch = () => {
-        const fruit = lefruits.find(
-            (fruit) =>
-                fruit.name.toLowerCase() === query.toLowerCase() ||
-                fruit.id.toString() === query
-        );
-
-        if (fruit) {
-            navigate(`/fruits/${fruit._id}`);
-        } else {
-            alert("Aucun fruit correspondant.");
-        }
+    };
+    // Handle search result click
+    const handleResultClick = (fruit) => {
+        navigate(`/fruits/${fruit._id}`);
     };
 
     const handleKeyDown = (event) => {
         if (event.key === "Enter") {
-            handleSearch();
+        
         }
     };
+
+    const handleSearch = () => {
+        
+    }
 
     const [isConnected, setIsConnected] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -84,6 +71,8 @@ useEffect(() => {
                     type="text"
                     placeholder="Search..."
                     value={query}
+                    // onChange={(e) => setQuery(e.target.value)}
+                    // onChange = { handleInputChange}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
                     className={style.searchInput}
@@ -99,7 +88,7 @@ useEffect(() => {
 
                 {showDropdown && (
                     <div className={style.dropdownMenu}>
-                        {appInfo.isLoggedIn ? (
+                        {appState.isLoggedIn ? (
                             <>
                                 <button
                                     className={style.dropdownItem}

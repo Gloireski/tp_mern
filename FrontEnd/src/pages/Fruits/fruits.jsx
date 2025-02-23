@@ -1,13 +1,14 @@
 ﻿import style from "./fruits.module.css";
 import Category from "../../services/components/Cards/CategoryCard/categoryCard.jsx";
 import { useNavigate, Link } from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useEffect, useState, useContext} from "react";
+import { AppContext } from '../../AppContext.js';
 
 
 const Fruits = () => {
+    const { appState, setUser, setFruits, filteredFruits } = useContext(AppContext);
     const categories = ["Citrus", "Tropical", "Berries", "Other"];
-
-    const [fruits, setFruits] = useState([]);
+    // const [fruits, setFruits] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -33,9 +34,10 @@ const Fruits = () => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error : {error}</p>;
-
+    console.log('filtered',filteredFruits)
     // fruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
-
+    // Determine which fruits to display: filteredFruits if available, otherwise all fruits
+    const fruitsToDisplay = filteredFruits.length > 0 ? filteredFruits : appState.fruits;
     return (
         <>
             <div className="hero-section" style  = {{
@@ -69,14 +71,14 @@ const Fruits = () => {
                 <Category
                     key={"All Fruits"}
                     title={"All Fruits"}
-                    fruits={fruits}/>
+                    fruits={fruitsToDisplay}/>
                 </div>
             <div className= {style.fruitgrid}>
                 {categories.map(category => (
                     <Category
                         key={category}
                         title={category}
-                        fruits={fruits.filter(fruit => fruit.category === category)}
+                        fruits={fruitsToDisplay.filter(fruit => fruit.category === category)}
                     />
                 ))}
             </div>
