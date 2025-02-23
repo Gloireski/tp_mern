@@ -10,7 +10,7 @@ function Header() {
     // const [query, setQuery] = useState('');
     const navigate = useNavigate()
     // const token = localStorage.getItem('token')
-    console.log(appState)
+    // console.log(appState)
     const fetchFruits = async () => {
         try {
             const response = await fetch("http://localhost:5000/fruits");
@@ -35,10 +35,6 @@ function Header() {
         
         }
     };
-
-    const handleSearch = () => {
-        
-    }
 
     const [isConnected, setIsConnected] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false);
@@ -77,9 +73,9 @@ function Header() {
                     onKeyDown={handleKeyDown}
                     className={style.searchInput}
                 />
-                <button onClick={handleSearch} className={style.searchButton}>
+                {/* <button onClick={handleSearch} className={style.searchButton}>
                     Search
-                </button>
+                </button> */}
             </div>
             <div className={style.accountContainer}>
                 <button className={style.accountButton} onClick={toggleDropdown}>

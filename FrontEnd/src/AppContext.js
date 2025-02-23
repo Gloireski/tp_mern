@@ -38,7 +38,7 @@ export const AppProvider = ({ children }) => {
       }
       // If the query is empty
       if (!query.trim()) {
-          setFilteredFruits([]);
+          setFilteredFruits(appState.fruits);
           // fetchFruits()
           return;
       }

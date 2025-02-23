@@ -37,7 +37,8 @@ const Fruits = () => {
     console.log('filtered',filteredFruits)
     // fruits.map((fruit) => (console.log(fruit.name + ' - ' + fruit._id)))
     // Determine which fruits to display: filteredFruits if available, otherwise all fruits
-    const fruitsToDisplay = filteredFruits.length > 0 ? filteredFruits : appState.fruits;
+    // const fruitsToDisplay = filteredFruits.length > 0 ? filteredFruits : appState.fruits;
+    const fruitsToDisplay = filteredFruits;
     return (
         <>
             <div className="hero-section" style  = {{
@@ -87,6 +88,11 @@ const Fruits = () => {
                     <Link to="/add">Add Fruit</Link>
                 </nav>
             </div>
+            {filteredFruits.length === 0 && (
+            <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                <p>Aucun fruit correspondant.</p>
+            </div>
+            )}
 
         </>
     );
