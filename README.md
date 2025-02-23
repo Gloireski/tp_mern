@@ -1,4 +1,4 @@
-# 🚀 Voici notre projet MERN Stqxk
+# 🚀 Voici notre projet MERN Stack
 
 Ceci est notre projet full stack MERN contruit avec **React** en frontend et **Node.js** (avec Express) pour backend et **mongodb** comme bqse de données. Elle offre une expérience utilisateur fluide pour gérer et afficher des fruits,  avec des fonctionnalités telles que la recherche, la catégorisation et l'ajout de nouveaux fruits et gestion d'utilisateur.
 
@@ -110,7 +110,12 @@ Le frontend est construit avec **React**, et le backend est alimenté par **Node
 | POST    | `/fruits`            | Ajouter un nouveau fruit.            |
 | PUT     | `/fruits/:id`        | Mettre à jour un fruit par son ID.   |
 | DELETE  | `/fruits/:id`        | Supprimer un fruit par son ID.       |
+| POST    | `/users/signup`      | Créer un utilisateur (rôle client)   |
+| GET     | `/auth/login`        | Se connecter                         |
 
+Perspectives: limiter la suppremiser aux utilisateurs ayant le rôle admin et permettre à un utilisateur
+superadmin de gérer les utilisateurs!
+i.e: les routes GET et PUT `/fruits/:id` seront interdit d'accès pour un users 'client' 
 ## 👥 Contributeurs
 
 - **[Gloire Bekoutou Belem ](https://github.com/Gloireski)** : développement full-stack.
