@@ -7,6 +7,7 @@ import AddFruit from "../../pages/AddFruit/addFruit.jsx";
 import EditFruit from "../../pages/EditFruit/editFruit.jsx";
 import Login from "../../pages/Login/login.jsx";
 import Signin from "../../pages/Signin/signin.jsx";
+import React from "react";
 
 const RoutePosts = () => {
     return <>

@@ -1,5 +1,6 @@
 ﻿import style from "./itemCard.module.css";
 import {useNavigate} from "react-router-dom";
+import React from "react";
 
 const ItemCard = ({ name, image_url, _id }) => {
 

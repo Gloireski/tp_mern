@@ -1,4 +1,5 @@
 import style from "./detailCard.module.css";
+import React from "react";
 
 const DetailCard = ({ name, description, price, category, origin, image_url }) => {
     return (

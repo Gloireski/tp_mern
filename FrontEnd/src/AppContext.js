@@ -1,11 +1,13 @@
 import React, { createContext, useState, useEffect } from 'react';
-
+import { useFruits } from './hooks/useFruits';
 // Create a Context
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [query, setQuery] = useState('');
   const [filteredFruits, setFilteredFruits] = useState([]);
+   // Use the useFruits hook to fetch fruits
+   const { data: fruits, isLoading, error } = useFruits();
   // Retrieve data from localStorage or use default values
   const getInitialState = () => {
     const savedState = localStorage.getItem('appState');

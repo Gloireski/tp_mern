@@ -4,7 +4,7 @@ import Category from "../../services/components/Cards/CategoryCard/categoryCard.
 import { useNavigate, Link } from "react-router-dom";
 import {useEffect, useState, useContext} from "react";
 import { AppContext } from '../../AppContext.js';
-
+import React from "react";
 
 const Fruits = () => {
     const { appState, setUser, setFruits, filteredFruits } = useContext(AppContext);

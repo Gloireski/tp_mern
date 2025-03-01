@@ -5,7 +5,8 @@
   "type": "module",
   "dependencies": {
     "@tailwindcss/cli": "^4.0.8",
-    "@tailwindcss/postcss": "^4.0.8",
+    "@tailwindcss/postcss": "^4.0.9",
+    "@tanstack/react-query": "^5.66.9",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -17,9 +18,9 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^6.29.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^3.0.1",
     "sha1": "^1.1.1",
-    "tailwindcss": "^4.0.8",
+    "tailwindcss": "^4.0.9",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,5 +46,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "@babel/core": "7.19.6",
+    "@babel/generator": "7.19.6",
+    "@babel/compat-data": "7.19.4",
+    "@babel/helper-compilation-targets": "7.19.3",
+    "@babel/helper-create-class-features-plugin":"7.19.0",
+    "@babel/helper-module-transforms":"7.19.6"
   }
 }

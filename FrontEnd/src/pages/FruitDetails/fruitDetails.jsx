@@ -3,7 +3,7 @@ import fruits from "../../data/fruits.json";
 import DetailCard from "../../services/components/Cards/DetailCard/detailCard.jsx";
 import style from "./fruitDetails.module.css";
 import {useCart} from "../../services/cart/cartContext.jsx";
-import {useEffect, useState} from "react";
+import {useEffect, useState, React} from "react";
 
 
 const FruitDetails = () => {
