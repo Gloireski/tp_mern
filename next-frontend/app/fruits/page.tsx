@@ -3,12 +3,24 @@
 
 import { useAppContext } from '@/context/AppContext';
 import FruitCard from '@/components/FruitCard';
+import { FaPlus } from 'react-icons/fa'; // Import the plus icon
+// import { redirect } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function FruitsPage() {
   const { filteredFruits, isLoading, error } = useAppContext();
 
+  const router = useRouter();
+
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
+ 
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default Link behavior
+    // redirect(`/fruits`);
+    router.push('/fruits/add');
+  }
 
   return (
     <div className='p-6'>
@@ -25,6 +37,13 @@ export default function FruitsPage() {
                 <p className='text-xl text-red-300'>Aucun fruit correspondant.</p>
             </div>
             )}
+      <Link href='/fruit/add'>
+        <button onClick={handleClick} className='flex items-center mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg
+          hover:bg-blue-600 transition-colors duration-200'>
+          <FaPlus className='mr-2'/>
+          Add fruit
+        </button>
+      </Link>
     </div>
   );
 }
