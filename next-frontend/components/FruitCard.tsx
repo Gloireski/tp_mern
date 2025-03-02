@@ -5,6 +5,7 @@ import Image from 'next/image'; // Import the Image component
 // import { useMutation, useQueryClient } from '@tanstack/react-query'; // Import React Query
 import { FaTrash, FaShoppingCart } from 'react-icons/fa'; // Import a delete icon from react-icons
 import { useDeleteFruit } from '@/hooks/useFruitMutation';
+import { useCart } from '@/context/CartContext';
 
 interface FruitCardProps {
     fruit: Fruit
@@ -14,6 +15,7 @@ interface FruitCardProps {
 export default function FruitCard({ fruit }: FruitCardProps) {
     // const queryClient = useQueryClient(); // Access the query client
     const deleteFruitMutation = useDeleteFruit(); // Use the custom hook
+    const { addToCart } = useCart()
     
     const formattedPrice = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -33,7 +35,7 @@ export default function FruitCard({ fruit }: FruitCardProps) {
         event.preventDefault(); // Prevent the Link from navigating
         event.stopPropagation(); // Stop event propagation
         // Add logic to add the fruit to the cart
-        console.log('Adding to cart:', fruit);
+        addToCart(fruit); // Add the fruit to the cart
         alert(`${fruit.name} added to cart!`);
     };
 
@@ -48,14 +50,6 @@ export default function FruitCard({ fruit }: FruitCardProps) {
                     aria-label="Delete fruit"
                 >
                     <FaTrash className="w-4 h-4" />
-                </button>
-                {/* Cart Icon */}
-                <button
-                    onClick={handleAddToCart}
-                    className="absolute top-2 left-2 p-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors duration-200 z-10"
-                    aria-label="Add to cart"
-                >
-                    <FaShoppingCart className="w-4 h-4" />
                 </button>
                 {/* Fruit Image */}
                 <div className="w-full h-48 relative">
@@ -85,6 +79,14 @@ export default function FruitCard({ fruit }: FruitCardProps) {
                     <p className='text-gray-700 text-base'>
                         <span className="font-semibold">Origin:</span> {fruit.origin}
                     </p>
+                    {/* Cart Icon */}
+                    <button
+                        onClick={handleAddToCart}
+                        className="absolute bottom-2 right-2 p-2 bg-green-500 text-white rounded-full hover:bg-green-600 transition-colors duration-200 z-10"
+                        aria-label="Add to cart"
+                    >
+                        <FaShoppingCart className="w-4 h-4" />
+                    </button>
                 </div>
             </div>
         </Link>
