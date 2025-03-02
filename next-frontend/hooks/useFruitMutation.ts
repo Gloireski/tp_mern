@@ -60,3 +60,25 @@ export const useUpdateFruit = (fruitId: string) =>{
         },
     });
 } 
+
+export const useAddFruit = () => {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (formDataToSend: FormData) => {
+            const response = await fetch('http://localhost:5000/fruits', {
+                method: 'POST',
+                body: formDataToSend
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+
+            return response.json();
+        },
+        onSuccess: () => {
+            // Invalidate the fruits query to refetch the data
+            queryClient.invalidateQueries({ queryKey: ['fruits'] });
+        },
+    });
+}
