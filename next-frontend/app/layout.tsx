@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AppProvider>
             <CartProvider>
               <Header />
-              <main style={{ padding: '20px' }}>{children}</main>
+              <main>{children}</main>
             </CartProvider>
           </AppProvider>
         </ReactQueryProvider>

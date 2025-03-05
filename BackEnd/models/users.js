@@ -77,7 +77,7 @@ const userValidation = Joi.object({
         .required()
         .messages({
             'string.base': 'role doit être une chaîne de caractères',
-            'any.only': 'role doit être soit "admin" soit "client"',
+            'any.only': 'role doit être soit "admin", "client" "super_admin"',
             'any.required': 'role est requis'
         })
 })

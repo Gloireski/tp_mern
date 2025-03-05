@@ -15,6 +15,7 @@ interface AppContextType {
   appState: AppState;
   setAppState: (appState: AppState) => void;
   setFruits: (newFruits: Fruit[]) => void;
+  setUser: (user: User | null, token: string | null) => void;
 }
 
 interface AppState {
@@ -68,6 +69,15 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       fruits: newFruits,
     }));
   };
+  // Function to update the user
+  const setUser = (user: User | null, token: string | null) => {
+    setAppState((prevState: AppState) => ({
+      ...prevState,
+      user,
+      token,
+      isLoggedIn: !!user,
+    }));
+  };
   useEffect(()=> {
     localStorage.setItem('appState', JSON.stringify(appState)); 
     console.log('state updated')
@@ -96,6 +106,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       value={{
         query,
         setQuery,
+        setUser,
         filteredFruits,
         isLoading,
         error,

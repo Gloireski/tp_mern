@@ -2,7 +2,6 @@
 'use client';
 
 import { useCart } from '@/context/CartContext';
-import { Fruit } from '@/types/fruit';
 import Link from 'next/link';
 
 export default function CartPage() {

@@ -10,16 +10,20 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.66.9",
+    "base-64": "^1.0.0",
     "next": "15.1.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.5.0"
+    "react-icons": "^5.5.0",
+    "sha1": "^1.1.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@types/base-64": "^1.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sha1": "^1.1.5",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",

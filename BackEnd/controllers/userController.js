@@ -46,6 +46,7 @@ class userController {
             return res.status(400).json({ message: "utilisateur existe" })
         }
         try {
+            // const password = sha1(value.password)
             const newUser = new User(value)
             console.log(value)
             await newUser.save()

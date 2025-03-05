@@ -6,6 +6,7 @@ import Image from 'next/image'; // Import the Image component
 import { FaTrash, FaShoppingCart } from 'react-icons/fa'; // Import a delete icon from react-icons
 import { useDeleteFruit } from '@/hooks/useFruitMutation';
 import { useCart } from '@/context/CartContext';
+import { useAppContext } from '@/context/AppContext';
 
 interface FruitCardProps {
     fruit: Fruit
@@ -16,6 +17,7 @@ export default function FruitCard({ fruit }: FruitCardProps) {
     // const queryClient = useQueryClient(); // Access the query client
     const deleteFruitMutation = useDeleteFruit(); // Use the custom hook
     const { addToCart } = useCart()
+    const { appState } = useAppContext()
     
     const formattedPrice = new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -44,13 +46,14 @@ export default function FruitCard({ fruit }: FruitCardProps) {
             <div className='max-w-sm rounded overflow-hidden shadow-lg bg-white cursor-pointer
             hover:shadow-xl transition-shadow duration-300 h-full flex flex-col relative min-h-[300px]'>
                 {/* Delete Icon */}
+                {appState.user?.role =='admin' &&
                 <button
                     onClick={handleDelete}
                     className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition-colors duration-200 z-10" // Add z-10
                     aria-label="Delete fruit"
                 >
                     <FaTrash className="w-4 h-4" />
-                </button>
+                </button>}
                 {/* Fruit Image */}
                 <div className="w-full h-48 relative">
                 {fruit.image_url ? (

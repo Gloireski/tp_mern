@@ -19,21 +19,20 @@ class authController {
         const decoded = Buffer.from(encoded, 'base64').toString();
         const email = decoded.split(':')[0];
         const password = decoded.split(':')[1];
-        console.log(email+' '+password);
+        console.log(email+' hey '+password);
         let user;
         try {
             user = await User.findOne({ email: email });
-            console.log(email)
+            console.log(user)
         } catch (e) {
             console.error(e)
             return res.status(401).send(error)
         }
         // console.log(user)
-        // console.log(sha1(password))
-        if (!user || sha1(password) !== user.password) {
-            res.status(401).json({ success: false,
+        console.log(sha1(password))
+        if (!user || password !== user.password) {
+            return res.status(401).json({ success: false,
                 message: 'Invalid email or password', });
-            return;
         }
         // const token = uuidv4();
         const token = generateAccessToken({ id: user.id, username: user.username, email: user.email })
@@ -47,19 +46,22 @@ class authController {
     }
 
     static async logout(req, res){
-        // console.log(`log user out ${req.token}`)
         const token = req.headers['authorization'].split(' ')[1];
-        // invalidateToken(`auth_${req.token}`)
+        console.log(`log user out ${token}`)
         // const tok = await getValue(`auth_${req.token}`)
         if (!token) {
-            return res.status(401).send('Unauthoried')
+            return res.status(401).json({message: 'Unauthoried'})
         }
         
         // invalidate user
         // await deleteValue(`auth_${req.token}`)
         // Add the token to the Redis blacklist
-        redisClient.set(`blacklist_${token}`, 'invalidated', 'EX', 3600); // Expire in 1 hour
-        return res.status(204).json({ message: "logged out"})
+        try {
+            redisClient.set(`blacklist_${token}`, 'invalidated', 'EX', 3600); // Expire in 1 hour
+            return res.status(200).json({ message: "log out succesfully"})
+        } catch(error) {
+            res.status(500).json({ message: 'Logout failed', error: error.message });
+        }
         // await redisClient.del(`auth_${token}`);
         // res.send('logout')
     }
