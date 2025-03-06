@@ -56,10 +56,15 @@ export default function Header() {
 
   return (
     <header className='bg-gray-100 border-b border-gray-200 py-4'>
-      <div className='max-w-7xl mx-auto flex md:flex-col justify-between items-center '>
-        <Link href='/fruits'><h1 className='font-bold text-2xl text-green-500'>LE PANIER VERT</h1></Link>
+      <div className='max-w-7xl mx-auto px-4'>
+        <div className='flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0'>
+          {/* logo */}
+          <Link href='/fruits'>
+            <h1 className='font-bold text-2xl text-green-500'>LE PANIER VERT</h1>
+          </Link>
           {/* Search Input and Cart Link */}
-          <div className='flex md:flex-col justify-end items-center space-x-4'>
+          <div className='flex flex-col sm:flex-row items-center
+            sm:space-y-2 sm:space-x-4 w-full sm:w-auto '>
             <input
               type="text"
               placeholder="Search fruits..."
@@ -89,9 +94,8 @@ export default function Header() {
                     {appState.user && appState.user.role === 'super_admin' && (
                       <Link
                         href='/fruits/admin/users'
-                        className="flex items-center p-2 hover:bg-gray-100"
+                        className="block p-2 hover:bg-gray-100"
                       >
-                        <FaUsersCog className="w-4 h-4 mr-2" />
                         <span>Manage Users</span>
                       </Link>
                     )}
@@ -115,7 +119,8 @@ export default function Header() {
                 </div>
               }
             </div>
-         </div>
+          </div>
+        </div>
       </div>
     </header>
   );
